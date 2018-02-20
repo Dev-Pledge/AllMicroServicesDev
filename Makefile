@@ -28,4 +28,4 @@ stop:
 	&& docker-compose -f ./api/docker-compose.yml stop \
 	&& docker-compose -f ./feed/docker-compose.yml stop \
 	&& docker-compose -f ./ui/docker-compose.yml stop \
-	&& docker-compose -f ./nginx/docker-compose.yml up
+	&& docker-compose -f ./nginx/docker-compose.yml stop
