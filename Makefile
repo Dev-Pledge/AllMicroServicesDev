@@ -9,7 +9,7 @@ up:
 down:
 	docker-compose -f ./sentry/docker-compose.yml down \
 	&& docker-compose -f ./auth/docker-compose.yml down \
-	&& docker-compose -f ./api/docker-compose.yml dowm \
+	&& docker-compose -f ./api/docker-compose.yml down \
 	&& docker-compose -f ./feed/docker-compose.yml down \
 	&& docker-compose -f ./ui/docker-compose.yml down \
 	&& docker-compose -f ./nginx/docker-compose.yml down
