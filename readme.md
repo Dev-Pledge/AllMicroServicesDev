@@ -1,5 +1,8 @@
 #Run All Dev Pledge Micro Services here
 
+Clone all the relevant repos
+
+
     sudo nano /etc/hosts
     
     #sentry
