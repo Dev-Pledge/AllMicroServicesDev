@@ -55,7 +55,7 @@ Get things going with
     
     make up
 
-Then replace your holding SENTRY DSNs after you've generated your projects in sentry for api, auth, feed and ui 
+Then replace your holding SENTRY DSNs after you've generated your projects in sentry for api, auth, feed and ui - leave the sentry:9000 - change everything around it!
 
     make stop
     
