@@ -1,10 +1,11 @@
 # Run All Dev Pledge Micro Services here
 
-## Clone all the relevant repos.
+## Pull all the relevant repos into your own project directory system that you use for everyday development.
 
 https://github.com/Dev-Pledge/Sentry
 
-* Set Sentry Up First So it can be used by other docker projects - just follow the readme
+* Set Sentry up first so it can be used by other docker projects - just follow the READ ME...
+* Once its setup bring the containers down and carry on with the install of the rest of the repos
 
 https://github.com/Dev-Pledge/Nginx
 
