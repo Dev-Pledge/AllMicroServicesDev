@@ -47,6 +47,20 @@ Symlink all the repos into the project
     
     ln -s ~/Projects/[yourlocalrepoofnginx] ~/Projects/[fullprojectdir]/nginx
     
+Then setup create .sentryenv files in the api, auth, feed and ui     
+
+    SENTRY_DSN=http://holdingkey:holding@@sentry:9000/1
+    
 Get things going with    
     
     make up
+
+Then replace your holding SENTRY DSNs after you've generated your projects in sentry for api, auth, feed and ui 
+
+    make stop
+    
+    make down
+    
+    make up
+    
+Now every time you bring it up it will all work and you can create amazing micro services for DP!
