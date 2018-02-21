@@ -29,3 +29,11 @@ stop:
 	&& docker-compose -f ./feed/docker-compose.yml stop \
 	&& docker-compose -f ./ui/docker-compose.yml stop \
 	&& docker-compose -f ./nginx/docker-compose.yml stop
+
+build:
+	docker-compose -f ./sentry/docker-compose.yml build \
+	&& docker-compose -f ./auth/docker-compose.yml build \
+	&& docker-compose -f ./api/docker-compose.yml build \
+	&& docker-compose -f ./feed/docker-compose.yml build \
+	&& docker-compose -f ./ui/docker-compose.yml build \
+	&& docker-compose -f ./nginx/docker-compose.yml build
