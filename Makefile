@@ -49,3 +49,9 @@ git-pull:
 	&& git -C ui pull \
 	&& git -C nginx pull
 
+restart-ui:
+	docker-compose -f ./nginx/docker-compose.yml stop \
+	&& docker-compose -f ./ui/docker-compose.yml stop \
+	&& docker-compose -f ./ui/docker-compose.yml down \
+	&& docker-compose -f ./ui/docker-compose.yml up -d \
+	&& docker-compose -f ./nginx/docker-compose.yml up -d
