@@ -76,3 +76,9 @@ restart-api:
 	&& docker-compose -f ./api/docker-compose.yml down \
 	&& docker-compose -f ./api/docker-compose.yml up -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d
+
+build-up:
+	make down \
+	&& make build \
+	&& make up
+
