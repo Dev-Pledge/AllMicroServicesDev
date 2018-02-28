@@ -82,3 +82,8 @@ build-up:
 	&& make build \
 	&& make up
 
+down-up:
+	make down \
+	&& make up
+
+
