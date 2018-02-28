@@ -40,3 +40,12 @@ build:
 	&& docker-compose -f ./feed/docker-compose.yml build \
 	&& docker-compose -f ./ui/docker-compose.yml build \
 	&& docker-compose -f ./nginx/docker-compose.yml build
+
+git-pull:
+	git pull \
+	&& git -C auth pull \
+	&& git -C api pull \
+	&& git -C feed pull \
+	&& git -C ui pull \
+	&& git -C nginx pull
+
