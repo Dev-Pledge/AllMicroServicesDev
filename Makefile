@@ -55,3 +55,24 @@ restart-ui:
 	&& docker-compose -f ./ui/docker-compose.yml down \
 	&& docker-compose -f ./ui/docker-compose.yml up -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d
+
+restart-auth:
+	docker-compose -f ./nginx/docker-compose.yml stop \
+	&& docker-compose -f ./auth/docker-compose.yml stop \
+	&& docker-compose -f ./auth/docker-compose.yml down \
+	&& docker-compose -f ./auth/docker-compose.yml up -d \
+	&& docker-compose -f ./nginx/docker-compose.yml up -d
+
+restart-feed:
+	docker-compose -f ./nginx/docker-compose.yml stop \
+	&& docker-compose -f ./feed/docker-compose.yml stop \
+	&& docker-compose -f ./feed/docker-compose.yml down \
+	&& docker-compose -f ./feed/docker-compose.yml up -d \
+	&& docker-compose -f ./nginx/docker-compose.yml up -d
+
+restart-api:
+	docker-compose -f ./nginx/docker-compose.yml stop \
+	&& docker-compose -f ./api/docker-compose.yml stop \
+	&& docker-compose -f ./api/docker-compose.yml down \
+	&& docker-compose -f ./api/docker-compose.yml up -d \
+	&& docker-compose -f ./nginx/docker-compose.yml up -d
