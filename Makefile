@@ -86,4 +86,15 @@ down-up:
 	make down \
 	&& make up
 
+git-up:
+	make git-pull \
+	&& make build-up
+
+yarn-ui:
+	cd ui/app/test \
+	&& yarn start
+
+npm-ui:
+	cd ui/app/test \
+	&& npm start
 
