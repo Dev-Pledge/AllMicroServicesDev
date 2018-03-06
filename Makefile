@@ -98,3 +98,18 @@ npm-ui:
 	cd ui/app/test \
 	&& npm start
 
+ssh-ui:
+	docker exec -ti dev_pledge_ui /bin/bash
+
+ssh-api:
+	docker exec -ti dev_pledge_api /bin/bash
+
+ssh-auth:
+	docker exec -ti dev_pledge_auth /bin/bash
+
+ssh-nginx:
+	docker exec -ti dev_pledge_nginx /bin/bash
+
+ssh-feed:
+	docker exec -ti dev_pledge_feed /bin/bash
+
