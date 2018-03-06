@@ -88,7 +88,7 @@ down-up:
 	&& make up
 
 git-up:
-	make git-pull \ssh
+	make git-pull \
 	&& make build-up \
 	&& make composer-auth \
 	&& make composer-api \
