@@ -35,12 +35,12 @@ stop:
 	&& docker-compose -f ./nginx/docker-compose.yml stop \
 
 build:
-	docker-compose -f ./sentry/docker-compose.yml build \
-	&& docker-compose -f ./auth/docker-compose.yml build \
-	&& docker-compose -f ./api/docker-compose.yml build \
-	&& docker-compose -f ./feed/docker-compose.yml build \
-	&& docker-compose -f ./ui/docker-compose.yml build \
-	&& docker-compose -f ./nginx/docker-compose.yml build
+	docker-compose -f ./sentry/docker-compose.yml build --no-cache \
+	&& docker-compose -f ./auth/docker-compose.yml build --no-cache \
+	&& docker-compose -f ./api/docker-compose.yml build --no-cache \
+	&& docker-compose -f ./feed/docker-compose.yml build --no-cache \
+	&& docker-compose -f ./ui/docker-compose.yml build --no-cache \
+	&& docker-compose -f ./nginx/docker-compose.yml build --no-cache
 
 git-pull:
 	git pull \
