@@ -88,8 +88,28 @@ down-up:
 	&& make up
 
 git-up:
-	make git-pull \
-	&& make build-up
+	make git-pull \ssh
+	&& make build-up \
+	&& make composer-auth \
+	&& make composer-api \
+	&& make composer-feed
+
+remove-vendors:
+	rm -rf ./auth/vendor \
+	&& rm -rf ./api/vendor \
+	&& rm -rf ./feed/vendor
+
+composer-auth:
+	 docker exec -ti dev_pledge_auth composer install
+
+composer-api:
+	 docker exec -ti dev_pledge_api composer install
+
+composer-feed:
+	 docker exec -ti dev_pledge_feed composer install
+
+composer-ui:
+	 docker exec -ti dev_pledge_ui composer install
 
 yarn-ui:
 	cd ui/app/test \
