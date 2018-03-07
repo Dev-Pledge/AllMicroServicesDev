@@ -137,3 +137,9 @@ ssh-nginx:
 ssh-feed:
 	docker exec -ti dev_pledge_feed /bin/bash
 
+view:
+	open http://dev.devledge.com \
+	&& open http://dev.auth.devpledge.com \
+	&& open http://dev.api.devpledge.com \
+	&& open http://dev.feed.devpledge.com \
+	&& open http://dev.errors.devpledge.com
