@@ -56,11 +56,15 @@ Get things going with
     make up
 
 Then replace your holding SENTRY DSNs after you've generated your projects in sentry for api, auth, feed and ui - leave the sentry:9000 - change everything around it!
-
-    make stop
     
     make down
     
     make up
     
 Now every time you bring it up it will all work and you can create amazing micro services for DP!
+
+## Trouble Shooting
+
+If you run into any problems:
+    
+    make git-clean
