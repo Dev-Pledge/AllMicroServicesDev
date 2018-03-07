@@ -158,3 +158,7 @@ view:
 
 docker-clean:
 	docker rmi -f $$(docker images -a -q) || docker ps
+
+help:
+	cat README.md \
+	&& make message
