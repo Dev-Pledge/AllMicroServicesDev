@@ -6,7 +6,7 @@ up:
 	&& docker-compose -f ./ui/docker-compose.yml up -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d \
 	&& docker ps
-	@echo "\n\n Once you have commited any changes please make sure you do a 'make git-up' to ensure your fellow DevPledge Developers can run the complete build!!! Tah! Love John x\n\n"
+	@echo "\n\n Once you have committed any changes please make sure you do a 'make git-up' to ensure your fellow DevPledge Developers can run the complete build!!! Tah! Love John x\n\n"
 
 down:
 	make stop \
@@ -95,7 +95,8 @@ git-up:
 	&& make build-up \
 	&& make composer-auth \
 	&& make composer-api \
-	&& make composer-feed
+	&& make composer-feed \
+	&& make view
 
 remove-vendors:
 	rm -rf ./auth/vendor \
@@ -138,8 +139,11 @@ ssh-feed:
 	docker exec -ti dev_pledge_feed /bin/bash
 
 view:
-	open http://dev.devledge.com \
+	open http://dev.devpledge.com \
 	&& open http://dev.auth.devpledge.com \
 	&& open http://dev.api.devpledge.com \
 	&& open http://dev.feed.devpledge.com \
 	&& open http://dev.errors.devpledge.com
+
+clean-docker:
+	docker rmi -f $(docker images -a -q)
