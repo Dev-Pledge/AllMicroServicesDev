@@ -100,6 +100,7 @@ git-up:
 	&& make composer-auth \
 	&& make composer-api \
 	&& make composer-feed \
+	&& make message \
 	&& make view
 
 git-clean:
