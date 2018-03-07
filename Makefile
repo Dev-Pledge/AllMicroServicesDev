@@ -1,3 +1,6 @@
+message:
+	@echo "\n\n Once you have committed any changes please make sure you do a 'make git-up' to ensure your fellow DevPledge Developers can run the complete build!!! Tah! Love John x\n\n"
+
 up:
 	docker-compose -f ./sentry/docker-compose.yml up -d \
 	&& docker-compose -f ./auth/docker-compose.yml up -d \
@@ -5,8 +8,8 @@ up:
 	&& docker-compose -f ./feed/docker-compose.yml up -d \
 	&& docker-compose -f ./ui/docker-compose.yml up -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d \
-	&& docker ps
-	@echo "\n\n Once you have committed any changes please make sure you do a 'make git-up' to ensure your fellow DevPledge Developers can run the complete build!!! Tah! Love John x\n\n"
+	&& docker ps \
+	&& make message
 
 down:
 	make stop \
@@ -25,6 +28,7 @@ start:
 	&& docker-compose -f ./feed/docker-compose.yml start \
 	&& docker-compose -f ./ui/docker-compose.yml start \
 	&& docker-compose -f ./nginx/docker-compose.yml start \
+	&& make message
 
 stop:
 	docker-compose -f ./sentry/docker-compose.yml stop \
@@ -98,6 +102,12 @@ git-up:
 	&& make composer-feed \
 	&& make view
 
+git-clean:
+	make down \
+	&& make remove-vendors \
+	&& make docker-clean \
+	&& make git-up
+
 remove-vendors:
 	rm -rf ./auth/vendor \
 	&& rm -rf ./api/vendor \
@@ -139,11 +149,11 @@ ssh-feed:
 	docker exec -ti dev_pledge_feed /bin/bash
 
 view:
-	open http://dev.devpledge.com \
-	&& open http://dev.auth.devpledge.com \
+	open http://dev.auth.devpledge.com \
 	&& open http://dev.api.devpledge.com \
 	&& open http://dev.feed.devpledge.com \
-	&& open http://dev.errors.devpledge.com
+	&& open http://dev.errors.devpledge.com \
+	&& open http://dev.devpledge.com
 
-clean-docker:
-	docker rmi -f $(docker images -a -q)
+docker-clean:
+	docker rmi -f $$(docker images -a -q) || docker ps
