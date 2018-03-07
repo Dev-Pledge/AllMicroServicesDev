@@ -57,14 +57,25 @@ Get things going with
 
 Then replace your holding SENTRY DSNs after you've generated your projects in sentry for api, auth, feed and ui - leave the sentry:9000 - change everything around it!
     
-    make down
-    
-    make up
+    make down-up
     
 Now every time you bring it up it will all work and you can create amazing micro services for DP!
+
+    make stop
+    
+    make start
+
+If you commit and push any changes to the other repos always run:
+
+    make git-up
+
+This will bring your containers down pull all the repos from git hub rebuild everything and bring it all back up.
+If it all comes back up and appears in your browser (automatically opens on macs) awesome.  If not, please fix asap!!!
 
 ## Trouble Shooting
 
 If you run into any problems:
     
     make git-clean
+    
+This will clean docker, clean your composer installs and rebuild all images. Then bring it all up for you.
