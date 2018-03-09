@@ -159,6 +159,9 @@ view:
 docker-clean:
 	docker rmi -f $$(docker images -a -q) || docker ps
 
+docker-prune:
+	docker image prune -a -f
+
 help:
 	cat README.md \
 	&& make message
