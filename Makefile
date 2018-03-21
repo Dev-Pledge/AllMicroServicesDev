@@ -127,11 +127,13 @@ composer-ui:
 	 docker exec -ti dev_pledge_ui composer install
 
 yarn-ui:
-	cd ui/app/test \
+	cd ui/app/app \
+	&& yarn \
 	&& yarn start
 
 npm-ui:
-	cd ui/app/test \
+	cd ui/app/app \
+	&& npm install \
 	&& npm start
 
 ssh-ui:
