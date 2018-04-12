@@ -56,6 +56,7 @@ git-pull:
 
 restart-ui:
 	docker-compose -f ./nginx/docker-compose.yml stop \
+	&& docker-compose -f ./nginx/docker-compose.yml down \
 	&& docker-compose -f ./ui/docker-compose.yml stop \
 	&& docker-compose -f ./ui/docker-compose.yml down \
 	&& docker-compose -f ./ui/docker-compose.yml up -d \
@@ -63,6 +64,7 @@ restart-ui:
 
 restart-auth:
 	docker-compose -f ./nginx/docker-compose.yml stop \
+	&& docker-compose -f ./nginx/docker-compose.yml down \
 	&& docker-compose -f ./auth/docker-compose.yml stop \
 	&& docker-compose -f ./auth/docker-compose.yml down \
 	&& docker-compose -f ./auth/docker-compose.yml up -d \
@@ -71,6 +73,7 @@ restart-auth:
 
 restart-feed:
 	docker-compose -f ./nginx/docker-compose.yml stop \
+	&& docker-compose -f ./nginx/docker-compose.yml down \
 	&& docker-compose -f ./feed/docker-compose.yml stop \
 	&& docker-compose -f ./feed/docker-compose.yml down \
 	&& docker-compose -f ./feed/docker-compose.yml up -d \
@@ -79,6 +82,7 @@ restart-feed:
 
 restart-api:
 	docker-compose -f ./nginx/docker-compose.yml stop \
+	&& docker-compose -f ./nginx/docker-compose.yml down \
 	&& docker-compose -f ./api/docker-compose.yml stop \
 	&& docker-compose -f ./api/docker-compose.yml down \
 	&& docker-compose -f ./api/docker-compose.yml up -d \
