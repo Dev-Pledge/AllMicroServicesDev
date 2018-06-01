@@ -8,6 +8,7 @@ up:
 	&& docker-compose -f ./feed/docker-compose.yml up -d \
 	&& docker-compose -f ./ui/docker-compose.yml up -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d \
+	&& docker-compose -f ./cache/docker-compose.yml up -d \
 	&& docker ps \
 	&& make message
 
@@ -19,6 +20,7 @@ down:
 	&& docker-compose -f ./feed/docker-compose.yml down \
 	&& docker-compose -f ./ui/docker-compose.yml down \
 	&& docker-compose -f ./nginx/docker-compose.yml down \
+	&& docker-compose -f ./cache/docker-compose.yml down \
 	&& docker ps
 
 start:
@@ -28,6 +30,7 @@ start:
 	&& docker-compose -f ./feed/docker-compose.yml start \
 	&& docker-compose -f ./ui/docker-compose.yml start \
 	&& docker-compose -f ./nginx/docker-compose.yml start \
+	&& docker-compose -f ./cache/docker-compose.yml start \
 	&& make message
 
 stop:
@@ -37,6 +40,7 @@ stop:
 	&& docker-compose -f ./feed/docker-compose.yml stop \
 	&& docker-compose -f ./ui/docker-compose.yml stop \
 	&& docker-compose -f ./nginx/docker-compose.yml stop \
+	&& docker-compose -f ./cache/docker-compose.yml stop
 
 build:
 	docker-compose -f ./sentry/docker-compose.yml build --no-cache \
@@ -44,7 +48,8 @@ build:
 	&& docker-compose -f ./api/docker-compose.yml build --no-cache \
 	&& docker-compose -f ./feed/docker-compose.yml build --no-cache \
 	&& docker-compose -f ./ui/docker-compose.yml build --no-cache \
-	&& docker-compose -f ./nginx/docker-compose.yml build --no-cache
+	&& docker-compose -f ./nginx/docker-compose.yml build --no-cache \
+	&& docker-compose -f ./cache/docker-compose.yml build --no-cache
 
 git-pull:
 	git pull \
@@ -52,7 +57,8 @@ git-pull:
 	&& git -C api pull \
 	&& git -C feed pull \
 	&& git -C ui pull \
-	&& git -C nginx pull
+	&& git -C nginx pull \
+	&& git -C cache pull
 
 restart-ui:
 	docker-compose -f ./nginx/docker-compose.yml stop \

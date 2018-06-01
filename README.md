@@ -17,6 +17,8 @@ https://github.com/Dev-Pledge/API
 
 https://github.com/Dev-Pledge/Auth
 
+https://github.com/Dev-Pledge/Cache
+
 
 
 
@@ -44,6 +46,8 @@ Symlink all the repos into the project
     ln -s ~/Projects/[yourlocalrepooffeed] ~/Projects/[fullprojectdir]/feed
     
     ln -s ~/Projects/[yourlocalrepoofui] ~/Projects/[fullprojectdir]/ui
+    
+    ln -s ~/Projects/[yourlocalrepoofcache] ~/Projects/[fullprojectdir]/cache
     
     ln -s ~/Projects/[yourlocalrepoofnginx] ~/Projects/[fullprojectdir]/nginx
     

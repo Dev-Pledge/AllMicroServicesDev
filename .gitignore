@@ -4,5 +4,6 @@
 /feed*
 /nginx*
 /sentry*
+/cache*
 /.idea/*
 
