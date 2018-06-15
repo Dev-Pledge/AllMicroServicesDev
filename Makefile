@@ -174,6 +174,9 @@ docker-clean:
 docker-prune:
 	docker image prune -a -f
 
+clear-auth-data:
+	rm -rf auth/data
+
 help:
 	cat README.md \
 	&& make message
