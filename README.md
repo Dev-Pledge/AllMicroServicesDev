@@ -15,8 +15,6 @@ https://github.com/Dev-Pledge/Feed
 
 https://github.com/Dev-Pledge/API
 
-https://github.com/Dev-Pledge/Auth
-
 https://github.com/Dev-Pledge/Cache
 
 
@@ -38,8 +36,6 @@ Copy these entries into the hosts file
 Symlink all the repos into the project
 
     ln -s ~/Projects/[yourlocalrepoofsentry] ~/Projects/[fullprojectdir]/sentry
-    
-    ln -s ~/Projects/[yourlocalrepoofauth] ~/Projects/[fullprojectdir]/auth
     
     ln -s ~/Projects/[yourlocalrepoofapi] ~/Projects/[fullprojectdir]/api
     

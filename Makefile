@@ -4,7 +4,6 @@ message:
 up:
 	docker-compose -f ./sentry/docker-compose.yml up -d \
 	&& docker-compose -f ./cache/docker-compose.yml up -d \
-	&& docker-compose -f ./auth/docker-compose.yml up -d \
 	&& docker-compose -f ./api/docker-compose.yml up -d \
 	&& docker-compose -f ./feed/docker-compose.yml up -d \
 	&& docker-compose -f ./ui/docker-compose.yml up -d \
@@ -16,7 +15,6 @@ down:
 	make stop \
 	&& docker-compose -f ./sentry/docker-compose.yml down \
 	&& docker-compose -f ./cache/docker-compose.yml down \
-	&& docker-compose -f ./auth/docker-compose.yml down \
 	&& docker-compose -f ./api/docker-compose.yml down \
 	&& docker-compose -f ./feed/docker-compose.yml down \
 	&& docker-compose -f ./ui/docker-compose.yml down \
@@ -26,7 +24,6 @@ down:
 start:
 	docker-compose -f ./sentry/docker-compose.yml start \
 	&& docker-compose -f ./cache/docker-compose.yml start \
-	&& docker-compose -f ./auth/docker-compose.yml start \
 	&& docker-compose -f ./api/docker-compose.yml start \
 	&& docker-compose -f ./feed/docker-compose.yml start \
 	&& docker-compose -f ./ui/docker-compose.yml start \
@@ -36,7 +33,6 @@ start:
 stop:
 	docker-compose -f ./sentry/docker-compose.yml stop \
 	&& docker-compose -f ./cache/docker-compose.yml stop \
-	&& docker-compose -f ./auth/docker-compose.yml stop \
 	&& docker-compose -f ./api/docker-compose.yml stop \
 	&& docker-compose -f ./feed/docker-compose.yml stop \
 	&& docker-compose -f ./ui/docker-compose.yml stop \
@@ -45,7 +41,6 @@ stop:
 build:
 	docker-compose -f ./sentry/docker-compose.yml build --no-cache \
 	&& docker-compose -f ./cache/docker-compose.yml build --no-cache \
-	&& docker-compose -f ./auth/docker-compose.yml build --no-cache \
 	&& docker-compose -f ./api/docker-compose.yml build --no-cache \
 	&& docker-compose -f ./feed/docker-compose.yml build --no-cache \
 	&& docker-compose -f ./ui/docker-compose.yml build --no-cache \
@@ -67,15 +62,6 @@ restart-ui:
 	&& docker-compose -f ./ui/docker-compose.yml down \
 	&& docker-compose -f ./ui/docker-compose.yml up -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d
-
-restart-auth:
-	docker-compose -f ./nginx/docker-compose.yml stop \
-	&& docker-compose -f ./nginx/docker-compose.yml down \
-	&& docker-compose -f ./auth/docker-compose.yml stop \
-	&& docker-compose -f ./auth/docker-compose.yml down \
-	&& docker-compose -f ./auth/docker-compose.yml up -d \
-	&& docker-compose -f ./nginx/docker-compose.yml up -d \
-	&& make composer-auth
 
 restart-feed:
 	docker-compose -f ./nginx/docker-compose.yml stop \
@@ -124,8 +110,6 @@ remove-vendors:
 	&& rm -rf ./api/vendor \
 	&& rm -rf ./feed/vendor
 
-composer-auth:
-	 docker exec -ti dev_pledge_auth composer install
 
 composer-api:
 	 docker exec -ti dev_pledge_api composer install
@@ -151,9 +135,6 @@ ssh-ui:
 
 ssh-api:
 	docker exec -ti dev_pledge_api /bin/bash
-
-ssh-auth:
-	docker exec -ti dev_pledge_auth /bin/bash
 
 ssh-nginx:
 	docker exec -ti dev_pledge_nginx /bin/bash
