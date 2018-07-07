@@ -104,7 +104,7 @@ git-clean:
 	&& make git-up
 
 remove-vendors:
-	&& rm -rf ./api/vendor \
+	rm -rf ./api/vendor \
 	&& rm -rf ./feed/vendor
 
 
