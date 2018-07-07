@@ -48,7 +48,6 @@ build:
 
 git-pull:
 	git pull \
-	&& git -C auth pull \
 	&& git -C api pull \
 	&& git -C feed pull \
 	&& git -C ui pull \
@@ -93,7 +92,6 @@ down-up:
 git-up:
 	make git-pull \
 	&& make build-up \
-	&& make composer-auth \
 	&& make composer-api \
 	&& make composer-feed \
 	&& make message \
@@ -106,7 +104,6 @@ git-clean:
 	&& make git-up
 
 remove-vendors:
-	rm -rf ./auth/vendor \
 	&& rm -rf ./api/vendor \
 	&& rm -rf ./feed/vendor
 
@@ -155,8 +152,8 @@ docker-clean:
 docker-prune:
 	docker image prune -a -f
 
-clear-auth-data:
-	rm -rf auth/data
+clear-api-data:
+	rm -rf api/data
 
 help:
 	cat README.md \
