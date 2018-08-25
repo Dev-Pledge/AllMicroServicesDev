@@ -111,7 +111,7 @@ composer-api:
 	 docker exec -ti dev_pledge_api composer install
 
 composer-feed:
-	 docker exec -ti dev_pledge_feed composer install
+	 #docker exec -ti dev_pledge_feed composer install
 
 composer-ui:
 	 docker exec -ti dev_pledge_ui composer install
