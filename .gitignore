@@ -5,5 +5,8 @@
 /nginx*
 /sentry*
 /cache*
+/.sentry-env
+/.smtp-env
+/.stripe-env
 /.idea/*
 
