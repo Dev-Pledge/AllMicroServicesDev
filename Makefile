@@ -69,7 +69,6 @@ restart-feed:
 	&& docker-compose -f ./feed/docker-compose.yml down \
 	&& docker-compose -f ./feed/docker-compose.yml up -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d \
-	&& make composer-feed
 
 restart-api:
 	docker-compose -f ./nginx/docker-compose.yml stop \
@@ -78,7 +77,6 @@ restart-api:
 	&& docker-compose -f ./api/docker-compose.yml down \
 	&& docker-compose -f ./api/docker-compose.yml up -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d \
-	&& make composer-api
 
 build-up:
 	make down \
