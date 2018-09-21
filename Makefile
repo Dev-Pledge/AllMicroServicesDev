@@ -152,6 +152,9 @@ docker-prune:
 clear-api-data:
 	rm -rf api/data
 
+open-redis:
+	open http://localhost:8081
+
 help:
 	cat README.md \
 	&& make message
