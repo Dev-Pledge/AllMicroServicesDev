@@ -15,7 +15,7 @@ https://github.com/Dev-Pledge/Feed
 
 https://github.com/Dev-Pledge/API
 
-* Just follow the READ ME for environment setups - use the examples given in the docker-compose.yml to create your .env- files...
+* Just follow the READ ME for environment setups - use the examples given in the docker-compose.yml to create your env files...
 
 https://github.com/Dev-Pledge/Cache
 
@@ -49,7 +49,7 @@ Symlink all the repos into the project
     
     ln -s ~/Projects/[yourlocalrepoofnginx] ~/Projects/[fullprojectdir]/nginx
     
-Then setup create .sentryenv files in the api, auth, feed and ui     
+Then setup create .sentry-env files in the api, auth, feed and ui     
 
     SENTRY_DSN=http://holdingkey:holding@@sentry:9000/1
     
