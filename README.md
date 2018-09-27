@@ -15,6 +15,8 @@ https://github.com/Dev-Pledge/Feed
 
 https://github.com/Dev-Pledge/API
 
+* Just follow the READ ME for environment setups - use the examples given in the docker-compose.yml to create your .env- files...
+
 https://github.com/Dev-Pledge/Cache
 
 
