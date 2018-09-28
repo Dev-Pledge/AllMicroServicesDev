@@ -2,17 +2,19 @@ message:
 	@echo "\n\n Once you have committed any changes please make sure you do a 'make git-up' to ensure your fellow DevPledge Developers can run the complete build!!! Tah! Love John x\n\n"
 
 up:
-	docker-compose -f ./sentry/docker-compose.yml up -d \
+	docker-compose -f ./ui/docker-compose-build.yml up --remove-orphans -d \
+	&& docker-compose -f ./sentry/docker-compose.yml up -d \
 	&& docker-compose -f ./cache/docker-compose.yml up -d \
 	&& docker-compose -f ./api/docker-compose.yml up -d \
 	&& docker-compose -f ./feed/docker-compose.yml up -d \
-	&& docker-compose -f ./ui/docker-compose.yml up -d \
+	&& docker-compose -f ./ui/docker-compose.yml up --remove-orphans -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d \
 	&& docker ps \
 	&& make message
 
 down:
 	make stop \
+	&& docker-compose -f ./ui/docker-compose-build.yml down \
 	&& docker-compose -f ./sentry/docker-compose.yml down \
 	&& docker-compose -f ./cache/docker-compose.yml down \
 	&& docker-compose -f ./api/docker-compose.yml down \
@@ -31,7 +33,8 @@ start:
 	&& make message
 
 stop:
-	docker-compose -f ./sentry/docker-compose.yml stop \
+	docker-compose -f ./ui/docker-compose-build.yml stop \
+	&& docker-compose -f ./sentry/docker-compose.yml stop \
 	&& docker-compose -f ./cache/docker-compose.yml stop \
 	&& docker-compose -f ./api/docker-compose.yml stop \
 	&& docker-compose -f ./feed/docker-compose.yml stop \
@@ -39,7 +42,8 @@ stop:
 	&& docker-compose -f ./nginx/docker-compose.yml stop
 
 build:
-	docker-compose -f ./sentry/docker-compose.yml build --no-cache \
+	docker-compose -f ./ui/docker-compose-build.yml build --no-cache \
+	&& docker-compose -f ./sentry/docker-compose.yml build --no-cache \
 	&& docker-compose -f ./cache/docker-compose.yml build --no-cache \
 	&& docker-compose -f ./api/docker-compose.yml build --no-cache \
 	&& docker-compose -f ./feed/docker-compose.yml build --no-cache \
@@ -53,6 +57,11 @@ git-pull:
 	&& git -C ui pull \
 	&& git -C nginx pull \
 	&& git -C cache pull
+
+ui-build:
+	docker-compose -f ./ui/docker-compose-build.yml stop \
+	&& docker-compose -f ./ui/docker-compose-build.yml down \
+	&& docker-compose -f ./ui/docker-compose-build.yml up -d
 
 restart-ui:
 	docker-compose -f ./nginx/docker-compose.yml stop \
