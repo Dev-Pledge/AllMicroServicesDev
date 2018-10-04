@@ -7,7 +7,7 @@ up:
 	&& docker-compose -f ./cache/docker-compose.yml up -d \
 	&& docker-compose -f ./api/docker-compose.yml up -d \
 	&& docker-compose -f ./feed/docker-compose.yml up -d \
-	&& docker-compose -f ./ui/docker-compose.yml up --remove-orphans -d \
+	&& docker-compose -f ./ui/docker-compose.yml up -d \
 	&& docker-compose -f ./nginx/docker-compose.yml up -d \
 	&& docker ps \
 	&& make message
@@ -19,7 +19,7 @@ down:
 	&& docker-compose -f ./cache/docker-compose.yml down \
 	&& docker-compose -f ./api/docker-compose.yml down \
 	&& docker-compose -f ./feed/docker-compose.yml down \
-	&& docker-compose -f ./ui/docker-compose.yml down \
+	&& docker-compose -f ./ui/docker-compose.yml down --remove-orphans \
 	&& docker-compose -f ./nginx/docker-compose.yml down \
 	&& docker ps
 
@@ -117,12 +117,6 @@ remove-vendors:
 composer-api:
 	 docker exec -ti dev_pledge_api composer install
 
-composer-feed:
-	 #docker exec -ti dev_pledge_feed composer install
-
-composer-ui:
-	 docker exec -ti dev_pledge_ui composer install
-
 yarn-ui:
 	cd ui/app/app \
 	&& yarn \
@@ -146,9 +140,7 @@ ssh-feed:
 	docker exec -ti dev_pledge_feed /bin/bash
 
 view:
-	open http://dev.auth.devpledge.com \
-	&& open http://dev.api.devpledge.com \
-	&& open http://dev.feed.devpledge.com \
+	open http://dev.api.devpledge.com/server/methods \
 	&& open http://dev.errors.devpledge.com \
 	&& open http://dev.devpledge.com
 
@@ -163,6 +155,11 @@ clear-api-data:
 
 open-redis:
 	open http://localhost:8081
+
+api-endpoints:
+	php api/public/index.php /server/make/readme \
+	&& open http://dev.api.devpledge.com/server/methods
+
 
 help:
 	cat README.md \
