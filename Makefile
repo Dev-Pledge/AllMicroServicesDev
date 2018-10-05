@@ -141,7 +141,9 @@ ssh-feed:
 view:
 	open http://dev.api.devpledge.com/server/methods \
 	&& open http://dev.errors.devpledge.com \
-	&& open http://dev.devpledge.com
+	&& open http://dev.devpledge.com \
+	&& open http://dev.devpledge.com:8081
+
 
 docker-clean:
 	docker rmi -f $$(docker images -a -q) || docker ps
