@@ -99,7 +99,6 @@ down-up:
 git-up:
 	make git-pull \
 	&& make build-up \
-	&& make composer-feed \
 	&& make message \
 	&& make view
 
